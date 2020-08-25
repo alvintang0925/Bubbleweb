@@ -17,7 +17,7 @@
             }
         </style>
 
-        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
         <script>
 
             var select_bubble = [];
@@ -156,12 +156,15 @@
                     
                     d3.select(select_bubble_add[j]).transition()
                                 //.delay(200)             // 延後漸變動畫的開始時間
-                                .duration(500)         // 漸變動畫持續時間
-                                .ease("bounce")         // 漸變動化效果
+                                .duration(1500)         // 漸變動畫持續時間
+                                .ease("cubic-in-out")         // 漸變動化效果
                                 .attr("fill", "black")
                                 .attr("r", 0)
-                                .each('start',function(it){
+                                .attr("cx", 400)
+                                .attr("cy", 590)
+                                .each('end',function(it){
                                     it.r = 0;
+                                    it.x = 10;
                                 });
 
                     
