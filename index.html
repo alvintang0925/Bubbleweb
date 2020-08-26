@@ -149,7 +149,7 @@
                 sendButton.addEventListener("click", sendBubble, false);
             }
 
-
+            var bubble_list = "";
             function sendBubble(){
                 
                 for(var j = 0; j < select_bubble.length;j++){ 
@@ -167,7 +167,7 @@
                                     it.x = 10;
                                 });
 
-                    
+                    bubble_list += select_bubble[j].company + ", ";
                     for(var k = 0; k < nodes.length; k++){
                         if(nodes[k].company == select_bubble[j].company){
                             nodes.splice(k,1);  
@@ -179,6 +179,7 @@
                 }
                 select_bubble_add = [];
                 select_bubble = [];
+                document.getElementById("bubble_list").value = bubble_list;
             }
             
             
@@ -195,6 +196,10 @@
         </div>
         <div style = "text-align:center">
             <input type = "button" value="送出" id = "sendButton">
+        </div>
+
+        <div width = "800px">
+            <input type = "text" style = "width:800px;" value = "" id = "bubble_list">
         </div>
          
     </body>
